@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+
+  simplesso-app:
+    build: .
+    volumes:
+      - ./SimpleSSO-App:/src/
+    ports:
+      - "3001:3001"
+    restart: always
+    tty: true
+    deploy:
+      resources:
+        limits:
+          cpus: '0.50'
+          memory: 60M
+        reservations:
+          cpus: '0.25'
+          memory: 20M

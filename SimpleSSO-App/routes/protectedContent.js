@@ -2,6 +2,7 @@ var express = require('express');
 var router = express.Router();
 const url = require('url'); // built-in utility
 
+const config = require('../config');
 const upgradeToken = require('./upgradeToken');
 const verifyToken = require('./verifyToken');
 
@@ -14,7 +15,7 @@ const renderErrorPage = function(res) {
 };
 
 const redirectToSsoLogin = function(res, fullUrl) {
-	res.redirect("https://localhost:3001/simplesso/login?redirect_uri=" + fullUrl);
+	res.redirect('https://' + config.hostname.ssoHostname + '/simplesso/login?redirect_uri=' + fullUrl);
 };
 
 /* GET users listing. */

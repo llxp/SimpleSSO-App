@@ -4,8 +4,8 @@ const config = require('../config');
 const verifyToken = (originUrl, bearerToken, callbackSuccess, callbackFailure) => {
 	process.env["NODE_TLS_REJECT_UNAUTHORIZED"] = 0;
 	console.log('url: ' + originUrl);
-	var options = {        
-		hostname: 'localhost',
+	var options = {
+		hostname: config.hostname.hostname,
 		port: 3001,
 		path: '/simplesso/verifytoken?ssoToken=' + bearerToken + '&client_secret='+ config.client_secret,
 		method: 'GET',
